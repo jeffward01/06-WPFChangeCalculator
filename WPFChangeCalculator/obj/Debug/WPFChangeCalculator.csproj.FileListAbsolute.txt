@@ -1,1 +1,14 @@
 C:\Users\jward01\Documents\Visual Studio 2015\Projects\WPFChangeCalculator\WPFChangeCalculator\bin\Debug\WPFChangeCalculator.exe.config
+C:\Users\jward01\Documents\Visual Studio 2015\Projects\WPFChangeCalculator\WPFChangeCalculator\bin\Debug\WPFChangeCalculator.exe
+C:\Users\jward01\Documents\Visual Studio 2015\Projects\WPFChangeCalculator\WPFChangeCalculator\bin\Debug\WPFChangeCalculator.pdb
+C:\Users\jward01\Documents\Visual Studio 2015\Projects\WPFChangeCalculator\WPFChangeCalculator\obj\Debug\WPFChangeCalculator.csprojResolveAssemblyReference.cache
+C:\Users\jward01\Documents\Visual Studio 2015\Projects\WPFChangeCalculator\WPFChangeCalculator\obj\Debug\MainWindow.g.cs
+C:\Users\jward01\Documents\Visual Studio 2015\Projects\WPFChangeCalculator\WPFChangeCalculator\obj\Debug\App.g.cs
+C:\Users\jward01\Documents\Visual Studio 2015\Projects\WPFChangeCalculator\WPFChangeCalculator\obj\Debug\WPFChangeCalculator_MarkupCompile.cache
+C:\Users\jward01\Documents\Visual Studio 2015\Projects\WPFChangeCalculator\WPFChangeCalculator\obj\Debug\WPFChangeCalculator_MarkupCompile.lref
+C:\Users\jward01\Documents\Visual Studio 2015\Projects\WPFChangeCalculator\WPFChangeCalculator\obj\Debug\MainWindow.baml
+C:\Users\jward01\Documents\Visual Studio 2015\Projects\WPFChangeCalculator\WPFChangeCalculator\obj\Debug\WPFChangeCalculator.g.resources
+C:\Users\jward01\Documents\Visual Studio 2015\Projects\WPFChangeCalculator\WPFChangeCalculator\obj\Debug\WPFChangeCalculator.Properties.Resources.resources
+C:\Users\jward01\Documents\Visual Studio 2015\Projects\WPFChangeCalculator\WPFChangeCalculator\obj\Debug\WPFChangeCalculator.csproj.GenerateResource.Cache
+C:\Users\jward01\Documents\Visual Studio 2015\Projects\WPFChangeCalculator\WPFChangeCalculator\obj\Debug\WPFChangeCalculator.exe
+C:\Users\jward01\Documents\Visual Studio 2015\Projects\WPFChangeCalculator\WPFChangeCalculator\obj\Debug\WPFChangeCalculator.pdb

@@ -5,8 +5,76 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPFChangeCalculator"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        
+        Title="MainWindow" Height="{Binding Source={x:Static SystemParameters.PrimaryScreenHeight}, Path=Height}" Width="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Path=Width}">
+    <Grid Background="{DynamicResource {x:Static SystemColors.AppWorkspaceBrushKey}}">
+        <Label x:Name="label" Content="Enter the first Items price" HorizontalAlignment="Left" Height="29" Margin="44,54,0,0" VerticalAlignment="Top" Width="167" RenderTransformOrigin="0.521,1.621"/>
+        <TextBox x:Name="itemPrice" HorizontalAlignment="Left" Height="23" Margin="44,88,0,0" TextWrapping="Wrap" Text="Item price" VerticalAlignment="Top" Width="167" TextAlignment="Center" GotFocus="itemPrice_GotFocus"/>
+        <TextBox x:Name="CustomersMoney" HorizontalAlignment="Left" Height="23" Margin="44,169,0,0" TextWrapping="Wrap" Text="amount $ recieved" VerticalAlignment="Top" Width="167" TextAlignment="Center" RenderTransformOrigin="0.476,-1.783" TextChanged="textBox_Copy_TextChanged" GotFocus="CustomersMoney_GotFocus"/>
+        <Label x:Name="title" Content="Cash Register || V.05" HorizontalAlignment="Left" Height="50" Margin="259,10,0,0" Width="214" FontSize="21.333" VerticalAlignment="Top" FontWeight="Bold" HorizontalContentAlignment="Center"/>
+        <Label x:Name="label_Copy" Content="Enter in Customer payment" HorizontalAlignment="Left" Height="29" Margin="44,135,0,0" VerticalAlignment="Top" Width="167" RenderTransformOrigin="0.521,1.621"/>
+        <Separator HorizontalAlignment="Left" Height="14" Margin="44,111,0,0" VerticalAlignment="Top" Width="167"/>
+        <Button x:Name="calcButton" Content="Calculate Change" HorizontalAlignment="Left" Height="30" Margin="58,227,0,0" VerticalAlignment="Top" Width="128" RenderTransformOrigin="0.93,0.483" Click="calcButton_Click"/>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="358" Margin="235,54,0,0" VerticalAlignment="Top" Width="2"/>
+        <Label x:Name="label_Copy1" Content="Change Given:" HorizontalAlignment="Left" Height="41" Margin="259,70,0,0" VerticalAlignment="Top" Width="167" RenderTransformOrigin="0.521,1.621" FontSize="20" FontWeight="Bold"/>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="8" Margin="229,46,0,0" VerticalAlignment="Top" Width="280" RenderTransformOrigin="0.5,0.5">
+            <Border.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black" Offset="0"/>
+                    <GradientStop Color="Black" Offset="1"/>
+                </LinearGradientBrush>
+            </Border.Background>
+            <Border.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleY="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Border.RenderTransform>
+        </Border>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="5" Margin="259,106,0,0" VerticalAlignment="Top" Width="167" RenderTransformOrigin="0.5,0.5">
+            <Border.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black" Offset="0"/>
+                    <GradientStop Color="Black" Offset="1"/>
+                </LinearGradientBrush>
+            </Border.Background>
+            <Border.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleY="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Border.RenderTransform>
+        </Border>
+        <Label x:Name="label_Copy2" Content="# of $50 Dollar Bills" HorizontalAlignment="Left" Height="29" Margin="245,116,0,0" VerticalAlignment="Top" Width="121" RenderTransformOrigin="0.521,1.621"/>
+        <Label x:Name="label_Copy3" Content="# of $20 Dollar Bills" HorizontalAlignment="Left" Height="29" Margin="245,145,0,0" VerticalAlignment="Top" Width="121" RenderTransformOrigin="0.521,1.621"/>
+        <Separator HorizontalAlignment="Left" Height="29" Margin="286,135,0,0" VerticalAlignment="Top" Width="168"/>
+        <Label x:Name="label_Copy4" Content="# of Pennies" HorizontalAlignment="Left" Height="29" Margin="245,348,0,0" VerticalAlignment="Top" Width="121" RenderTransformOrigin="0.521,1.621"/>
+        <Label x:Name="label_Copy5" Content="# of Nickels" HorizontalAlignment="Left" Height="29" Margin="245,319,0,0" VerticalAlignment="Top" Width="121" RenderTransformOrigin="0.521,1.621"/>
+        <Label x:Name="label_Copy6" Content="# of $10 Dollar Bills" HorizontalAlignment="Left" Height="29" Margin="245,174,0,0" VerticalAlignment="Top" Width="121" RenderTransformOrigin="0.521,1.621"/>
+        <Label x:Name="label_Copy7" Content="# of $5 Dollar Bills" HorizontalAlignment="Left" Height="29" Margin="245,198,0,0" VerticalAlignment="Top" Width="121" RenderTransformOrigin="0.521,1.621"/>
+        <Label x:Name="label_Copy8" Content="# of $1 Dollar Bills" HorizontalAlignment="Left" Height="29" Margin="245,227,0,0" VerticalAlignment="Top" Width="121" RenderTransformOrigin="0.521,1.621"/>
+        <Label x:Name="label_Copy9" Content="# of Quarters" HorizontalAlignment="Left" Height="29" Margin="245,261,0,0" VerticalAlignment="Top" Width="121" RenderTransformOrigin="0.521,1.621"/>
+        <Label x:Name="label_Copy10" Content="# of Dimes" HorizontalAlignment="Left" Height="29" Margin="245,290,0,0" VerticalAlignment="Top" Width="121" RenderTransformOrigin="0.521,1.621"/>
+        <TextBox x:Name="numOf50" HorizontalAlignment="Left" Height="20" Margin="355,120,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="30"/>
+        <TextBox x:Name="numOfNickels1" HorizontalAlignment="Left" Height="20" Margin="326,323,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="30"/>
+        <TextBox x:Name="numOfDimes" HorizontalAlignment="Left" Height="20" Margin="326,294,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="30"/>
+        <TextBox x:Name="numOfQuarters1" HorizontalAlignment="Left" Height="20" Margin="326,265,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="30"/>
+        <TextBox x:Name="numOf1" HorizontalAlignment="Left" Height="20" Margin="355,231,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="30"/>
+        <TextBox x:Name="numOf5" HorizontalAlignment="Left" Height="20" Margin="355,202,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="30"/>
+        <TextBox x:Name="numOf10" HorizontalAlignment="Left" Height="20" Margin="355,178,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="30"/>
+        <TextBox x:Name="numOf20" HorizontalAlignment="Left" Height="20" Margin="355,150,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="30" TextChanged="textBox1_Copy6_TextChanged"/>
+        <Separator HorizontalAlignment="Left" Height="19" Margin="277,163,0,0" VerticalAlignment="Top" Width="168"/>
+        <Separator HorizontalAlignment="Left" Height="15" Margin="277,192,0,0" VerticalAlignment="Top" Width="168" RenderTransformOrigin="0.512,0.379"/>
+        <Separator HorizontalAlignment="Left" Height="14" Margin="259,251,0,0" VerticalAlignment="Top" Width="168"/>
+        <Separator HorizontalAlignment="Left" Height="29" Margin="277,212,0,0" VerticalAlignment="Top" Width="168"/>
+        <Separator HorizontalAlignment="Left" Height="25" Margin="245,337,0,0" VerticalAlignment="Top" Width="168"/>
+        <TextBox x:Name="numOfPennies" HorizontalAlignment="Left" Height="20" Margin="326,353,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="30" RenderTransformOrigin="0.517,2.55"/>
+        <Separator HorizontalAlignment="Left" Height="21" Margin="242,311,0,0" VerticalAlignment="Top" Width="168"/>
+        <Separator HorizontalAlignment="Left" Height="30" Margin="235,276,0,0" VerticalAlignment="Top" Width="168"/>
+        <Button x:Name="ClearButton" Content="Clear" HorizontalAlignment="Left" Height="30" Margin="82,276,0,0" VerticalAlignment="Top" Width="78" Click="ClearButton_Click"/>
+
     </Grid>
 </Window>
