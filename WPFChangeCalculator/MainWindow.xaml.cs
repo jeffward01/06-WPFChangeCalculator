@@ -316,15 +316,17 @@ namespace WPFChangeCalculator
             clearTextboxes();
         }
 
+        //Exit Button
         private void ExitButton_Click(object sender, RoutedEventArgs e)
         {
 
-            Environment.Exit(0);
-            //Prompt Dialog box with 2 buttons is not working for some reason
-              //MessageBox.Show("Is Dot Net Perls awesome?",
-                //"Important Question",
-                 // MessageBoxButtons.YesNo);
-    
+            MessageBoxResult result = MessageBox.Show("Are you sure you want to exit?", "Exit Prompt", MessageBoxButton.YesNo);
+
+            if (result == MessageBoxResult.Yes)
+            {
+                Environment.Exit(0);
+            }
+            return;
         }
 
         //Clear Transactions
