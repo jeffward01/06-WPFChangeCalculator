@@ -119,9 +119,19 @@ namespace WPFChangeCalculator
 
                         string input = Console.ReadLine();
 
-                        decimal returnValue = decimal.Parse(input);
 
-                        if (positiveNumber == true && returnValue < 0)
+                        if(string.IsNullOrEmpty(input))
+                          {
+                             Console.WriteLine("Please enter a number");
+
+                             continue;
+
+                          }
+
+                    decimal returnValue = decimal.Parse(input);
+
+
+                    if (positiveNumber == true && returnValue < 0)
                         {
                             Console.WriteLine("Please enter a positive number");
 
@@ -175,7 +185,16 @@ namespace WPFChangeCalculator
                         string input = Console.ReadLine();
 
 
-                        decimal returnValue = decimal.Parse(input);
+                    if (string.IsNullOrEmpty(input))
+                    {
+                        Console.WriteLine("Please enter a number");
+
+                        continue;
+
+                    }
+
+
+                    decimal returnValue = decimal.Parse(input);
 
                         if (positiveNumber == true && returnValue < 0)
                         {
@@ -228,7 +247,15 @@ namespace WPFChangeCalculator
 
                         string input = Console.ReadLine();
 
-                        input = JeffToolBox.RemoveSpecialCharacters(input);
+                    if (string.IsNullOrEmpty(input))
+                    {
+                        Console.WriteLine("Please enter a number");
+
+                        continue;
+
+                    }
+
+                    input = JeffToolBox.RemoveSpecialCharacters(input);
 
                         decimal returnValue = decimal.Parse(input);
 

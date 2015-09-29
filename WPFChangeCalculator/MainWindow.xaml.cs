@@ -349,10 +349,29 @@ namespace WPFChangeCalculator
             string myString = TransactionCountDec.ToString();
             label_TransationCount.Content = myString;
 
+
+
+
+            //Try Statment
+
+            try
+            {
+                //Try to convert somethine or do something else
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Show something here");
+
+                //Throw is optional, but try it out
+                throw;
+
+            }
+
+
         }
     }
 
-
+ 
 
 }
 
