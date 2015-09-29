@@ -20,6 +20,10 @@ namespace WPFChangeCalculator
     /// </summary>
     public partial class MainWindow : Window
     {
+        //Initialize Transaction Count
+        public static decimal TransactionCountDec = 0;
+        public static string TransactionCountStr;
+
         //Initialize Cash Register
         public static decimal RegisterTotalDec = 100;
         public static string RegisterTotalStr = RegisterTotalDec.ToString("C");
@@ -67,7 +71,7 @@ namespace WPFChangeCalculator
             
             InitializeComponent();
             //populate register total
-            RegisterTotal.Content = RegisterTotalStr;
+            
 
             //Add Output Textboxes to Array
             outputTextBoxes[0] = numOf50;
@@ -98,6 +102,11 @@ namespace WPFChangeCalculator
 
         public void calcButton_Click(object sender, RoutedEventArgs e)
         {
+            
+            
+
+
+
             //Get Customer Inputs
             var_itemPrice = itemPrice.Text;
             var_customersMoney = CustomersMoney.Text;
@@ -185,6 +194,17 @@ namespace WPFChangeCalculator
         }
          void DetermineChange(decimal itemCost, decimal givenAmount)
         {
+            RegisterTotal.Content = RegisterTotalStr;
+
+
+
+            if (TransactionCountDec == 0)
+            {
+                label_TransationCount.Content = "";
+
+            }
+
+            //Start
             change = givenAmount - itemCost;
             string customersChange = change.ToString("C");
 
@@ -229,7 +249,10 @@ namespace WPFChangeCalculator
             var_numOfNickesl = dec_numOfNickesl.ToString();
             var_numOfPennies = dec_numOfPennies.ToString();
 
-            
+            //Transaction Content
+            TransactionCountDec = TransactionCountDec + 1;
+            string myString = TransactionCountDec.ToString();
+            label_TransationCount.Content = myString;
 
         }
         public void showChange(decimal change)
@@ -253,6 +276,7 @@ namespace WPFChangeCalculator
             numOfDimes.Text = var_numOfDimes;
             numOfNickels1.Text = var_numOfNickesl;
             numOfPennies.Text = var_numOfPennies;
+
         }
 
         //Clear ItemBox Text on focus

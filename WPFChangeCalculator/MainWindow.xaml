@@ -87,6 +87,8 @@
         <Label x:Name="label1" Content="Cash Register Total:" HorizontalAlignment="Left" Height="35" Margin="459,157,0,0" VerticalAlignment="Top" Width="195" FontSize="18.667" FontWeight="Bold"/>
         <Label x:Name="RegisterTotal" Content="" HorizontalAlignment="Left" Height="29" Margin="522,194,0,0" VerticalAlignment="Top" Width="132" FontSize="16" FontWeight="Bold" Foreground="Black"/>
         <Button x:Name="ExitButton" Content="EXIT" HorizontalAlignment="Left" Height="46" Margin="676,22,0,0" VerticalAlignment="Top" Width="62" Background="#FFC70303" FontSize="21.333" FontWeight="Bold" Click="ExitButton_Click"/>
+        <Label x:Name="label2" Content="Number of Transactions:" HorizontalAlignment="Left" Height="30" Margin="473,227,0,0" VerticalAlignment="Top" Width="245" FontSize="18.667" FontWeight="Bold"/>
+        <Label x:Name="label_TransationCount" Content="" HorizontalAlignment="Left" Height="45" Margin="610,261,0,0" VerticalAlignment="Top" Width="58" FontSize="21.333" FontWeight="Bold"/>
 
     </Grid>
 </Window>
