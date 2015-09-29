@@ -20,11 +20,19 @@ namespace WPFChangeCalculator
     /// </summary>
     public partial class MainWindow : Window
     {
+        //Initialize Cash Register
+        public static decimal RegisterTotalDec = 100;
+        public static string RegisterTotalStr = RegisterTotalDec.ToString("C");
+
+
         //Grab Users Input
         public static string var_itemPrice;
         public static string var_customersMoney;
         public static decimal ItemPrice;
         public static decimal InputMoney;
+
+        //Math Outputs
+        public static decimal change;
 
         //Assign Varibles to Calculate functions output
         public static string var_numOf50s;
@@ -36,7 +44,7 @@ namespace WPFChangeCalculator
         public static string var_numOfDimes;
         public static string var_numOfNickesl;
         public static string var_numOfPennies;
-
+        public static string var_changeTotal;
 
         public static decimal dec_numOf50s;
         public static decimal dec_numOf20s;
@@ -47,6 +55,7 @@ namespace WPFChangeCalculator
         public static decimal dec_numOfDimes;
         public static decimal dec_numOfNickesl;
         public static decimal dec_numOfPennies;
+        public static decimal dec_changeTotal;
 
         //Array of output TextBoxes
         public TextBox[] outputTextBoxes = new TextBox[9];
@@ -57,22 +66,24 @@ namespace WPFChangeCalculator
         {
             
             InitializeComponent();
+            //populate register total
+            RegisterTotal.Content = RegisterTotalStr;
 
             //Add Output Textboxes to Array
-            outputTextBoxes.[0] = numOf50;
-            outputTextBoxes.[1] = numOf20;
-            outputTextBoxes.[2] = numOf10;
-            outputTextBoxes.[3] = numOf5;
-            outputTextBoxes.[4] = numOf1;
-            outputTextBoxes.[5] = numOfQuarters1;
-            outputTextBoxes.[6] = numOfDimes;
-            outputTextBoxes.[7] = numOfNickels1;
-            outputTextBoxes.[8] = numOfPennies;
+            outputTextBoxes[0] = numOf50;
+            outputTextBoxes[1] = numOf20;
+            outputTextBoxes[2] = numOf10;
+            outputTextBoxes[3] = numOf5;
+            outputTextBoxes[4] = numOf1;
+            outputTextBoxes[5] = numOfQuarters1;
+            outputTextBoxes[6] = numOfDimes;
+            outputTextBoxes[7] = numOfNickels1;
+            outputTextBoxes[8] = numOfPennies;
 
 
             //Add input Textboxes to Array
-            inputTextBoxes.[0] = itemPrice;
-            inputTextBoxes.[1] = CustomersMoney;
+            inputTextBoxes[0] = itemPrice;
+            inputTextBoxes[1] = CustomersMoney;
         }
 
         private void textBox1_Copy6_TextChanged(object sender, TextChangedEventArgs e)
@@ -89,10 +100,77 @@ namespace WPFChangeCalculator
         {
             //Get Customer Inputs
             var_itemPrice = itemPrice.Text;
-             ItemPrice = Decimal.Parse(var_itemPrice);
-
             var_customersMoney = CustomersMoney.Text;
-             InputMoney = Decimal.Parse(var_customersMoney);
+
+
+            //Ensure some input is present
+            if ((var_itemPrice == "") || (var_customersMoney == ""))
+            {
+
+                MessageBox.Show("Your need to fill in both item cost and customers money amounts!");
+                clearTextboxes();
+                return;
+
+
+            }
+
+            if ((!JeffToolBox.hasLetters(var_itemPrice)) || (!JeffToolBox.hasLetters(var_customersMoney)))
+            {
+
+                MessageBox.Show("Please enter a number!");
+                clearTextboxes();
+                return;
+
+            }
+
+            //Remove Specail Characters
+            var_itemPrice = JeffToolBox.RemoveSpecialCharacters(var_itemPrice);
+            var_customersMoney = JeffToolBox.RemoveSpecialCharacters(var_customersMoney);
+
+
+            //parse Customer Inputs to Decimals
+            ItemPrice = Decimal.Parse(var_itemPrice);
+            InputMoney = Decimal.Parse(var_customersMoney);
+
+           //Valifationt to ensure item price is lower thna what customer paid
+            if (ItemPrice > InputMoney)
+            {
+
+                MessageBox.Show("Your customer needs to give you more Money!");
+                clearTextboxes();
+                return;
+            }
+
+            //valifation to ensure enough money is in vash register
+            decimal yourChange = InputMoney - ItemPrice;
+
+
+            if( yourChange > RegisterTotalDec)
+            {
+                MessageBox.Show("You dont have enough change to give the customer. Do not sell.");
+                clearTextboxes();
+                return;
+
+
+            }
+
+
+           
+           
+
+
+
+            //Ensure that inputs are not larger than max value
+            if(((ItemPrice > Decimal.MaxValue) || (ItemPrice < Decimal.MinValue  ))||((InputMoney > Decimal.MaxValue) || (InputMoney < Decimal.MinValue)))
+            {
+                MessageBox.Show("Dont be a hacker! Enter a Realistic number!");
+                clearTextboxes();
+                return;
+
+
+            }
+
+
 
             //Perform Math
 
@@ -100,20 +178,35 @@ namespace WPFChangeCalculator
 
 
             displayOutput();
+            showChange(change);
+
 
 
         }
-        static void DetermineChange(decimal itemCost, decimal givenAmount)
+         void DetermineChange(decimal itemCost, decimal givenAmount)
         {
-            decimal change = givenAmount - itemCost;
+            change = givenAmount - itemCost;
             string customersChange = change.ToString("C");
 
             string ItemPrice = itemCost.ToString("C");
 
+            //Register Total Programming
+            RegisterTotalDec = RegisterTotalDec + itemCost;
+
+            RegisterTotalDec = RegisterTotalDec - change;
+
+            RegisterTotalStr = RegisterTotalDec.ToString("C");
+
+            RegisterTotal.Content = RegisterTotalStr;
+
+
+
+
+
             //insert validation
 
 
-         
+
             dec_numOf50s = Math.Floor(change / 50.00M);
             dec_numOf20s = Math.Floor((change % 50.00M) / 20.00M);
             dec_numOf10s = Math.Floor(((change % 50.00M) % 20.00M) / 10.00M);
@@ -136,9 +229,18 @@ namespace WPFChangeCalculator
             var_numOfNickesl = dec_numOfNickesl.ToString();
             var_numOfPennies = dec_numOfPennies.ToString();
 
-            //Display Output
-            //Why cant I display output here
-           
+            
+
+        }
+        public void showChange(decimal change)
+        {
+
+            string myTotal = change.ToString("C");
+            totalChange.Content = myTotal;
+             
+
+
+
         }
         public void displayOutput()
         {
@@ -177,7 +279,7 @@ namespace WPFChangeCalculator
 
             }
 
-
+            totalChange.Content = String.Empty;
         }
 
         private void button_Click(object sender, RoutedEventArgs e)
@@ -188,6 +290,24 @@ namespace WPFChangeCalculator
         private void ClearButton_Click(object sender, RoutedEventArgs e)
         {
             clearTextboxes();
+        }
+
+        private void ExitButton_Click(object sender, RoutedEventArgs e)
+        {
+            Environment.Exit(0);
+
+            //Doesnt Work
+            //* MessageBox.Show("Sure", "Some Title", MessageBoxButtons.YesNo);
+            //      if (dialogResult == DialogResult.Yes)
+            //        {
+            //              Environment.Exit(0);
+            //
+            // }
+            // else if (dialogResult == DialogResult.No)
+            // {
+            //    return;
+            // }
+
         }
     }
 

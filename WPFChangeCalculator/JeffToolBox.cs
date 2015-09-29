@@ -61,6 +61,9 @@ namespace WPFChangeCalculator
             }
             public static bool hasLetters(string myString)
             {
+           myString = JeffToolBox.RemoveSpecialCharacters(myString);
+            myString = myString.Replace(".", "");
+
                 foreach (var i in myString)
                 {
                     if ((i < '0' || i > '9'))
