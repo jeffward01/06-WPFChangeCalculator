@@ -75,13 +75,13 @@
         <TextBox x:Name="numOf20" HorizontalAlignment="Left" Height="20" Margin="355,150,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="30" TextChanged="textBox1_Copy6_TextChanged"/>
         <Separator HorizontalAlignment="Left" Height="19" Margin="277,163,0,0" VerticalAlignment="Top" Width="168"/>
         <Separator HorizontalAlignment="Left" Height="15" Margin="277,192,0,0" VerticalAlignment="Top" Width="168" RenderTransformOrigin="0.512,0.379"/>
-        <Separator HorizontalAlignment="Left" Height="14" Margin="259,251,0,0" VerticalAlignment="Top" Width="168"/>
+        <Separator HorizontalAlignment="Left" Height="14" Margin="44,257,0,0" VerticalAlignment="Top" Width="168"/>
         <Separator HorizontalAlignment="Left" Height="29" Margin="277,212,0,0" VerticalAlignment="Top" Width="168"/>
         <Separator HorizontalAlignment="Left" Height="25" Margin="245,337,0,0" VerticalAlignment="Top" Width="168"/>
         <TextBox x:Name="numOfPennies" HorizontalAlignment="Left" Height="20" Margin="326,353,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="30" RenderTransformOrigin="0.517,2.55"/>
         <Separator HorizontalAlignment="Left" Height="21" Margin="242,311,0,0" VerticalAlignment="Top" Width="168"/>
         <Separator HorizontalAlignment="Left" Height="30" Margin="235,276,0,0" VerticalAlignment="Top" Width="168"/>
-        <Button x:Name="ClearButton" Content="Clear" HorizontalAlignment="Left" Height="30" Margin="82,276,0,0" VerticalAlignment="Top" Width="78" Click="ClearButton_Click"/>
+        <Button x:Name="ClearButton" Content="Clear Inputs" HorizontalAlignment="Left" Height="30" Margin="68,276,0,0" VerticalAlignment="Top" Width="92" Click="ClearButton_Click"/>
         <Label x:Name="Total" Content="total change: " HorizontalAlignment="Left" Height="41" Margin="431,70,0,0" VerticalAlignment="Top" Width="158" FontSize="24" FontWeight="Bold"/>
         <Label x:Name="totalChange" Content="" HorizontalAlignment="Left" Height="37" Margin="610,74,0,0" VerticalAlignment="Top" Width="92" RenderTransformOrigin="0.478,-0.432" Foreground="#FF23FD00" FontSize="24"/>
         <Label x:Name="label1" Content="Cash Register Total:" HorizontalAlignment="Left" Height="35" Margin="459,157,0,0" VerticalAlignment="Top" Width="195" FontSize="18.667" FontWeight="Bold"/>
@@ -89,6 +89,8 @@
         <Button x:Name="ExitButton" Content="EXIT" HorizontalAlignment="Left" Height="46" Margin="676,22,0,0" VerticalAlignment="Top" Width="62" Background="#FFC70303" FontSize="21.333" FontWeight="Bold" Click="ExitButton_Click"/>
         <Label x:Name="label2" Content="Number of Transactions:" HorizontalAlignment="Left" Height="30" Margin="473,227,0,0" VerticalAlignment="Top" Width="245" FontSize="18.667" FontWeight="Bold"/>
         <Label x:Name="label_TransationCount" Content="" HorizontalAlignment="Left" Height="45" Margin="610,261,0,0" VerticalAlignment="Top" Width="58" FontSize="21.333" FontWeight="Bold"/>
+        <Button x:Name="Button_ClearTransactions" Content="Clear Transactions" HorizontalAlignment="Left" Height="25" Margin="58,323,0,0" VerticalAlignment="Top" Width="128" RenderTransformOrigin="0.301,0.244" Click="Button_ClearTransactions_Click"/>
+        <Button x:Name="button_ClearAll" Content="Clear All" HorizontalAlignment="Left" Height="25" Margin="77,360,0,0" VerticalAlignment="Top" Width="83" RenderTransformOrigin="0.301,0.244" Click="button_ClearAll_Click"/>
 
     </Grid>
 </Window>

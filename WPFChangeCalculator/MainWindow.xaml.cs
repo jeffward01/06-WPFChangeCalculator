@@ -333,6 +333,28 @@ namespace WPFChangeCalculator
             // }
 
         }
+
+        //Clear Transactions
+        private void Button_ClearTransactions_Click(object sender, RoutedEventArgs e)
+        {
+            ResetTransactions();
+        }
+     
+
+        private void button_ClearAll_Click(object sender, RoutedEventArgs e)
+        {
+            ResetTransactions();
+            clearTextboxes();
+        }
+
+        public void ResetTransactions()
+        {
+
+            TransactionCountDec = 0;
+            string myString = TransactionCountDec.ToString();
+            label_TransationCount.Content = myString;
+
+        }
     }
 
 
