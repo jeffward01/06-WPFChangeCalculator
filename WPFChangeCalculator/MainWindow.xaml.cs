@@ -318,20 +318,13 @@ namespace WPFChangeCalculator
 
         private void ExitButton_Click(object sender, RoutedEventArgs e)
         {
+
             Environment.Exit(0);
-
-            //Doesnt Work
-            //* MessageBox.Show("Sure", "Some Title", MessageBoxButtons.YesNo);
-            //      if (dialogResult == DialogResult.Yes)
-            //        {
-            //              Environment.Exit(0);
-            //
-            // }
-            // else if (dialogResult == DialogResult.No)
-            // {
-            //    return;
-            // }
-
+            //Prompt Dialog box with 2 buttons is not working for some reason
+              //MessageBox.Show("Is Dot Net Perls awesome?",
+                //"Important Question",
+                 // MessageBoxButtons.YesNo);
+    
         }
 
         //Clear Transactions
